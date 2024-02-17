@@ -6,26 +6,14 @@
 # Created: 2018-08-01
 # Description: This module defines required tags for resources
 
-variable "environment" {
-  type = string
+terraform {
+  required_version = ">= 1.6.0"
 }
 
-variable "owner" {
-  type = string
-}
-
-variable "project" {
-  type = string
-}
-
-output "environment" {
-  value = var.environment
-}
-
-output "owner" {
-  value = var.owner
-}
-
-output "project" {
-  value = var.project
+locals {
+  tags = {
+    "Environment" = var.environment
+    "Owner"       = var.owner
+    "Project"     = var.project
+  }
 }
